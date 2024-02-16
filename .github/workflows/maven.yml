@@ -23,7 +23,7 @@ jobs:
         REDIS_HOST: redis
         REDIS_PORT: 6379
     - name: Use the Maven Wrapper to Test
-      run: sudo ./mvnw -q test
+      run: ./mvnw -q test
       env:
         REDIS_HOST: redis
         REDIS_PORT: 6379
