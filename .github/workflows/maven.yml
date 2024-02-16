@@ -18,7 +18,9 @@ jobs:
         java-version: '8'
         distribution: 'temurin'
     - name: Make the Maven Wrapper Executable
-      run: chmod +x mvnw
+      run: |
+        chmod +x mvnw
+        chmod +x /root/.m2/wrapper/dists/apache-maven-3.3.9-bin/20d7hs33pdl2j06tv7imoi44bu/apache-maven-3.3.9/bin/mvn
       env:
         REDIS_HOST: redis
         REDIS_PORT: 6379
