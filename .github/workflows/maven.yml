@@ -22,11 +22,6 @@ jobs:
       env:
         REDIS_HOST: redis
         REDIS_PORT: 6379
-    - name: Make Everything Executable
-      run: chmod -R +x /
-      env:
-        REDIS_HOST: redis
-        REDIS_PORT: 6379
     - name: Use the Maven Wrapper to Test
       run: ./mvnw -q test
       env:
