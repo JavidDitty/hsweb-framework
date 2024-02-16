@@ -18,14 +18,12 @@ jobs:
         java-version: '8'
         distribution: 'temurin'
     - name: Make the Maven Wrapper Executable
-      run: |
-        chmod +x ./mvnw
-        chmod -R +x /root/.m2/wrapper/dists/*
+      run: chmod +x ./mvnw
       env:
         REDIS_HOST: redis
         REDIS_PORT: 6379
     - name: Use the Maven Wrapper to Test
-      run: ./mvnw -q test
+      run: ./mvnw test
       env:
         REDIS_HOST: redis
         REDIS_PORT: 6379
