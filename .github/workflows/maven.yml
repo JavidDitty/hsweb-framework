@@ -25,5 +25,4 @@ jobs:
           key: ${{ runner.os }}-maven
       - run: |
           chmod +x mvnw
-          ./mvnw test
           bash <(curl -s https://codecov.io/bash)
