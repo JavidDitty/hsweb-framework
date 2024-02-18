@@ -1,0 +1,29 @@
+name: hsweb-framework:branch-2
+
+on:
+  push:
+    branches:
+    - branch-2
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        jdk: [8]
+        java-distribution: [zulu]
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set Up JDK
+        uses: actions/setup-java@v3
+        with:
+          java-version: ${{ matrix.jdk }}
+          distribution: ${{ matrix.distribution }}
+      - uses: actions/cache@v3
+        with:
+          path: ~/.maven-
+          key: ${{ runner.os }}-maven
+      - run: |
+          chmod +x mvnw
+          ./mvnw test
+          bash <(curl -s https://codecov.io/bash)
