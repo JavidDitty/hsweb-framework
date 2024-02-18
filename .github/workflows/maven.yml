@@ -30,13 +30,11 @@ jobs:
       with:
         distribution: zulu
         java-version: '8'
-    - run: |
-        chmod +x mvnw
-        ./mvnw test
+    - run: chmod +x mvnw
+    - run: ./mvnw test
       env:
-          REDIS_HOST: redis
+          REDIS_HOST: localhost
           REDIS_PORT: 6379
 #     # 'sudo' was not transformed because there is no suitable equivalent in GitHub Actions
-    - run: chmod +x mvnw
     - run: bash <(curl -s https://codecov.io/bash)
       if: "${{ success() }}"
